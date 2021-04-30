@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'src/app/models/subject';
+import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-subject-list',
@@ -6,26 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subject-list.component.css']
 })
 export class SubjectListComponent implements OnInit {
-  subjects = [
-    {
-      id: 1,
-      title: 'One',
-      subTitle: '1'
-    },
-    {
-      id: 2,
-      title: 'Two',
-      subTitle: '2'
-    },
-    {
-      id: 3,
-      title: 'Three',
-      subTitle: '3'
-    },
-  ]
-  constructor() { }
+  subjects: Subject[]
+
+  constructor(
+    private subjectService: SubjectService
+  ) { }
 
   ngOnInit(): void {
+    this.getSubjects()
+  }
+
+  private getSubjects(): void {
+    this.subjectService.getSubjects()
+      .subscribe(subjects => this.subjects = subjects)
   }
 
 }
