@@ -14,6 +14,8 @@ export class LessonService {
   ) { }
 
   public getLessons(subjectId: number): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(`this.lessonUrl/${subjectId}`)
+    const result = this.http.get<Lesson[]>(`${this.lessonUrl}/${subjectId}`)
+    console.log(result)
+    return result
   }
 }
