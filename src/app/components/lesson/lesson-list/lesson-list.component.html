@@ -1,0 +1,13 @@
+<div *ngIf="lessons; else loading">
+  <ul>
+    <li *ngFor="let lesson of lessons" >
+        <app-lesson
+            [lesson]="lesson">
+        </app-lesson>
+    </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

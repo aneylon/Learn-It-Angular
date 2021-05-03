@@ -7,9 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SubjectComponent implements OnInit {
   @Input() subject
+  showLessonList: boolean = false
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleLessonList(): void {
+    this.showLessonList = !this.showLessonList
+  }
 }

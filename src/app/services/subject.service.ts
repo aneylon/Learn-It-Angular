@@ -20,9 +20,4 @@ export class SubjectService {
     console.log('service', result)
     return result
   }
-
-  // getSubject
-  // addSubject
-  // removeSubject
-
 }

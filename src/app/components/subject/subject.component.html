@@ -1,3 +1,8 @@
 <div title="{{subject.subTitle}}">
+  <div (click)="toggleLessonList()">
     {{subject.title}}
+  </div>
+    <app-lesson-list
+      *ngIf="showLessonList"
+      [subjectId]="subject.id"></app-lesson-list>
 </div>

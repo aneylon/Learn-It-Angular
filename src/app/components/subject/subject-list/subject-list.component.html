@@ -1,7 +1,13 @@
-<ul>
-    <li *ngFor="let subject of subjects" >   
-        <app-subject
-            [subject]="subject">
-        </app-subject>
-    </li>
-</ul>
+<div *ngIf="subjects; else loading">
+  <ul>
+      <li *ngFor="let subject of subjects" >
+          <app-subject
+              [subject]="subject">
+          </app-subject>
+      </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
