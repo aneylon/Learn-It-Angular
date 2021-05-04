@@ -1,0 +1,11 @@
+<div *ngIf="cards; else placeHolder">
+    <div>Card deck name</div>
+    <app-card [currentCard]="currentCard"></app-card>
+    <button (click)="knowCard(currentCard.id)">know</button>
+    <button (click)="notSureCard(currentCard.id)">not sure</button>
+    <button (click)="dontKnowCard(currentCard.id)">don't know</button>
+</div>
+
+<ng-template #placeHolder>
+    Please select a lesson / deck
+</ng-template>
