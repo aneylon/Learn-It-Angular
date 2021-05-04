@@ -13,7 +13,11 @@ export class FlashCardComponent implements OnInit {
   
   constructor(
     private cardService: CardService
-  ) { }
+  ) {
+    this.cardService.selectedDeck.subscribe(
+      deck => this.cards = deck
+    )
+  }
 
   ngOnInit(): void {
   }

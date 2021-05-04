@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Lesson } from 'src/app/models/lesson';
+import { CardService } from 'src/app/services/card.service';
 
 @Component({
   selector: 'app-lesson',
@@ -8,11 +9,15 @@ import { Lesson } from 'src/app/models/lesson';
 })
 export class LessonComponent implements OnInit {
   @Input() lesson: Lesson
-  constructor() { }
+  constructor(
+    private cardService: CardService
+  ) { }
 
   ngOnInit(): void {
   }
   selectLesson(lessonId: number): void {
     console.log('selected lesson', lessonId)
+    this.cardService.selectDeck(lessonId)
   }
+
 }
