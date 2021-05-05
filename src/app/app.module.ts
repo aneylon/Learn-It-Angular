@@ -20,7 +20,7 @@ import { FlashCardComponent } from './components/card/flash-card/flash-card/flas
     LessonListComponent,
     LoadingComponent,
     CardComponent,
-    FlashCardComponent
+    FlashCardComponent,
   ],
   imports: [
     BrowserModule,
