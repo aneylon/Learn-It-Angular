@@ -16,6 +16,7 @@ describe('SubjectComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SubjectComponent);
     component = fixture.componentInstance;
+    component.subject = { id: 1, title: 'stuff', subTitle: 'things'}
     fixture.detectChanges();
   });
 
