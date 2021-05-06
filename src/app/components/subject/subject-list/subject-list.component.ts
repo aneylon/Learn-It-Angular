@@ -21,7 +21,6 @@ export class SubjectListComponent implements OnInit {
   private getSubjects(): void {
     this.subjectService.getSubjects()
       .subscribe(subjects => {
-        console.log('subject list', subjects)
         this.subjects = subjects
       })
   }

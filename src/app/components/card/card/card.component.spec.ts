@@ -16,6 +16,7 @@ describe('CardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
+    component.currentCard = { id: 2, question: 'one', answer: 'two', expalin: 'three'}
     fixture.detectChanges();
   });
 

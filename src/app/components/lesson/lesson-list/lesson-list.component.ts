@@ -20,10 +20,8 @@ export class LessonListComponent implements OnInit {
   }
 
   public getLessons(subjectId: number): void {
-    console.log('getting lessons', subjectId)
     this.lessonService.getLessons(subjectId)
       .subscribe(lessons => {
-        console.log('got lessons', lessons)
         this.lessons = lessons
       })
   }

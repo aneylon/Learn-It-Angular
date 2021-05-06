@@ -18,7 +18,6 @@ export class CardService {
   public selectDeck(deckId: number) {
     this.getDeck(deckId)
       .subscribe(deck => {
-        console.log(deck)
         this.selectedDeck.next(deck)
       })
   }
@@ -26,7 +25,6 @@ export class CardService {
   // get deck by id
   public getDeck(deckId: number): Observable<Card[]>{
     const result = this.http.get<Card[]>(`${this.cardUrl}/deck/${deckId}`)
-    console.log(result)
     return result
   }
   

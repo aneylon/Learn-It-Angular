@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Card } from 'src/app/models/card';
 
 @Component({
   selector: 'app-card',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
+  @Input() currentCard
+  showCard: boolean = false
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public toggleShowCard(): void {
+    this.showCard = !this.showCard
+  }
 }

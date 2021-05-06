@@ -10,7 +10,8 @@ import { CardService } from 'src/app/services/card.service';
 export class FlashCardComponent implements OnInit {
   cards: Card[]
   shuffledCards: Card[]
-  currentCardNumber: number
+  currentCardNumber: number = 0
+  currentCard: Card
 
   constructor(
     private cardService: CardService
@@ -18,39 +19,42 @@ export class FlashCardComponent implements OnInit {
     this.cardService.selectedDeck.subscribe(
       deck => {
         this.cards = deck
-        console.log('er body shufflein')
-        this.shuffleCards(this.cards)
+        this.shuffledCards = this.shuffleCards(this.cards)
+        this.currentCardNumber = 0
+        this.currentCard = this.shuffledCards[this.currentCardNumber]
       }
     )
   }
 
   private randomNumber(max: number){
     let randomNumber = Math.floor(Math.random() * max)
-    console.log('max was', max, 'randomNumber is', randomNumber)
     return randomNumber
   }
 
   private shuffleCards(cards: Card[]): Card[] {
     let shuffledCards: Card[] = cards.slice()
-    console.log('start a shuffling')
-    // randomly swap cards
     for(let i = 0; i < shuffledCards.length; i++) {
       let randomCardNumber = this.randomNumber(shuffledCards.length)
       let temp = shuffledCards[randomCardNumber]
       shuffledCards[randomCardNumber] = shuffledCards[i]
       shuffledCards[i] = temp
     }
-    console.log('shuffled', shuffledCards)
     return shuffledCards
   }
 
   ngOnInit(): void {
   }
 
-  // know card
-  // not sure card
-  // don't know card
-  // shuffle deck
-  
+  public knowCard(cardId: number): void {
+    console.log('know it!', cardId)
+  }
+
+  public notSureCard(cardId: number): void {
+    console.log('not sure', cardId)
+  }
+
+  public dontKnowCard(cardId: number): void {
+    console.log('don\'t know', cardId)
+  }  
 
 }

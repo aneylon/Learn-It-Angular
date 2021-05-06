@@ -15,9 +15,7 @@ export class SubjectService {
     ) { }
 
   public getSubjects(): Observable<Subject[]> {
-    console.log(this.subjectUrl)
     const result = this.http.get<Subject[]>(this.subjectUrl)
-    console.log('service', result)
     return result
   }
 }

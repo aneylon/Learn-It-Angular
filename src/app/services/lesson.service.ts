@@ -15,7 +15,6 @@ export class LessonService {
 
   public getLessons(subjectId: number): Observable<Lesson[]> {
     const result = this.http.get<Lesson[]>(`${this.lessonUrl}/${subjectId}`)
-    console.log(result)
     return result
   }
 }

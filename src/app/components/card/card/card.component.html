@@ -1,1 +1,6 @@
 <p>card works!</p>
+<div (click)="toggleShowCard()">Question: {{currentCard.question}}</div>
+<div *ngIf="showCard">
+    <div>Answer: {{currentCard.answer}}</div>
+    <div>Explain: {{currentCard.explain}}</div>
+</div>

@@ -16,7 +16,6 @@ export class LessonComponent implements OnInit {
   ngOnInit(): void {
   }
   selectLesson(lessonId: number): void {
-    console.log('selected lesson', lessonId)
     this.cardService.selectDeck(lessonId)
   }
 

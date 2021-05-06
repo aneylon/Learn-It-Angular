@@ -1,5 +1,9 @@
 <div *ngIf="cards; else placeHolder">
     <div>Card deck name</div>
+    {{currentCard.id}}
+    {{currentCard.question}}
+    {{currentCard.answer}}
+    {{currentCard.explain}}
     <app-card [currentCard]="currentCard"></app-card>
     <button (click)="knowCard(currentCard.id)">know</button>
     <button (click)="notSureCard(currentCard.id)">not sure</button>
