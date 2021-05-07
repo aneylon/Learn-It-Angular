@@ -46,14 +46,26 @@ export class FlashCardComponent implements OnInit {
   }
 
   public knowCard(cardId: number): void {
+    let res = this.cardService.knowCard(cardId)
+      .subscribe( result => {
+        console.log('flash card update res', result)
+      })
     this.nextCard()
   }
 
   public notSureCard(cardId: number): void {
+    let res = this.cardService.notSureCard(cardId)
+      .subscribe( result => {
+        console.log('flash card update res', result)
+      })
     this.nextCard()
   }
 
   public dontKnowCard(cardId: number): void {
+    let res = this.cardService.dontKnowCard(cardId)
+      .subscribe( result => {
+        console.log('flash card update res', result)
+      })
     this.nextCard()
   }  
 

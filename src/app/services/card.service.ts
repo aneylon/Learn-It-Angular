@@ -3,6 +3,7 @@ import { Card } from '../models/card';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment'
+import { UserCardKnowledge } from '../models/UserCardKnowledge';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,33 @@ export class CardService {
   
   //save user response
   // know
+  public knowCard(cardId: number): Observable<string>{
+    const userUpdate: UserCardKnowledge = {
+      userId: 1,
+      cardId
+    }
+    const result = this.http.put<string>(`${this.cardUrl}/knowCard`, userUpdate)
+    return result
+  }
+
   // notSure
+  public notSureCard(cardId: number): Observable<string>{
+    const userUpdate: UserCardKnowledge = {
+      userId: 1,
+      cardId
+    }
+    const result = this.http.put<string>(`${this.cardUrl}/notSureCard`, userUpdate)
+    return result
+  }
+
   // dontKnow
+  public dontKnowCard(cardId: number): Observable<string>{
+    const userUpdate: UserCardKnowledge = {
+      userId: 1,
+      cardId
+    }
+    const result = this.http.put<string>(`${this.cardUrl}/dontKnowCard`, userUpdate)
+    return result
+  }
+
 }
