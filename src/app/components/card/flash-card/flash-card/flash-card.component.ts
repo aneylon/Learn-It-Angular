@@ -46,15 +46,24 @@ export class FlashCardComponent implements OnInit {
   }
 
   public knowCard(cardId: number): void {
-    console.log('know it!', cardId)
+    this.nextCard()
   }
 
   public notSureCard(cardId: number): void {
-    console.log('not sure', cardId)
+    this.nextCard()
   }
 
   public dontKnowCard(cardId: number): void {
-    console.log('don\'t know', cardId)
+    this.nextCard()
   }  
 
+  public nextCard(): void {
+    this.currentCardNumber ++
+    if(this.currentCardNumber >= this.shuffledCards.length) {
+      this.currentCardNumber = 0
+      this.shuffledCards = this.shuffleCards(this.cards)
+    } 
+    this.currentCard = this.shuffledCards[this.currentCardNumber]
+
+  }
 }
