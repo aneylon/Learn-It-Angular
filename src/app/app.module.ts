@@ -10,6 +10,8 @@ import { LessonListComponent } from './components/lesson/lesson-list/lesson-list
 import { LoadingComponent } from './components/loading/loading.component';
 import { CardComponent } from './components/card/card/card.component';
 import { FlashCardComponent } from './components/card/flash-card/flash-card/flash-card.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
+import { UserSigninSignoutComponent } from './components/user/user-signin-signout/user-signin-signout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FlashCardComponent } from './components/card/flash-card/flash-card/flas
     LoadingComponent,
     CardComponent,
     FlashCardComponent,
+    UserLoginComponent,
+    UserSigninSignoutComponent,
   ],
   imports: [
     BrowserModule,

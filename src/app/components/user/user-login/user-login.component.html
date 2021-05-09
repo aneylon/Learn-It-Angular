@@ -1,0 +1,17 @@
+<div *ngIf="logInUser; else newUser">
+    <form>
+        <input type="text">
+        <input type="password">
+        <input type="submit">
+    </form>
+    <a (click)="toggleLoginRegister()">Register</a>
+</div>
+
+<ng-template # newUser>
+    <form>
+        <input type="email">
+        <input type="password">
+        <input type="submit">
+    </form>
+    <a (click)="toggleLoginRegister()">Login</a>
+</ng-template>

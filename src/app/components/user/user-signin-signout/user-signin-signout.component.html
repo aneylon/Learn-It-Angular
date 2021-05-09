@@ -1,0 +1,7 @@
+<div *ngIf="userSignedIn; else logOut">
+    <a>Login</a>
+</div>
+
+<ng-template #logOut>
+    <p (click)="logoutUser(user)">Logout</p>
+</ng-template>
