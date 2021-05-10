@@ -1,7 +1,7 @@
-<div *ngIf="userSignedIn; else logOut">
-    <a>Login</a>
+<div *ngIf="userSignedIn; else signIn">
+    <p (click)="logoutUser(user)">Logout</p>
 </div>
 
-<ng-template #logOut>
-    <p (click)="logoutUser(user)">Logout</p>
+<ng-template #signIn>
+    <a routerLink="/login">Login</a>
 </ng-template>

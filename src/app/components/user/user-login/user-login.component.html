@@ -1,17 +1,21 @@
 <div *ngIf="logInUser; else newUser">
     <form>
-        <input type="text">
-        <input type="password">
-        <input type="submit">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+        <input type="submit" value="login">
     </form>
     <a (click)="toggleLoginRegister()">Register</a>
 </div>
 
 <ng-template #newUser>
-    <form>
-        <input type="email">
-        <input type="password">
-        <input type="submit">
-    </form>
-    <a (click)="toggleLoginRegister()">Login</a>
+    <div>
+        <form>
+            <input type="email" placeholder="email">
+            <input type="password" placeholder="password">
+            <input type="submit" value="register">
+        </form>
+        <a (click)="toggleLoginRegister()">Login</a>
+    </div>
 </ng-template>
+
+<a routerLink="/">Home</a>

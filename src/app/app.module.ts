@@ -13,6 +13,8 @@ import { FlashCardComponent } from './components/card/flash-card/flash-card/flas
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserSigninSignoutComponent } from './components/user/user-signin-signout/user-signin-signout.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     UserLoginComponent,
     UserSigninSignoutComponent,
     WelcomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
