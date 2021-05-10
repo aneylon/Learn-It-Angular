@@ -12,6 +12,7 @@ import { CardComponent } from './components/card/card/card.component';
 import { FlashCardComponent } from './components/card/flash-card/flash-card/flash-card.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserSigninSignoutComponent } from './components/user/user-signin-signout/user-signin-signout.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserSigninSignoutComponent } from './components/user/user-signin-signou
     FlashCardComponent,
     UserLoginComponent,
     UserSigninSignoutComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
