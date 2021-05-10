@@ -23,4 +23,10 @@ describe('SubjectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the correct subject', () => {
+    expect(fixture.componentInstance.subject.id).toEqual(1)
+    expect(fixture.componentInstance.subject.subTitle).toEqual('things')
+    expect(fixture.componentInstance.subject.title).toEqual('stuff')
+  })
 });

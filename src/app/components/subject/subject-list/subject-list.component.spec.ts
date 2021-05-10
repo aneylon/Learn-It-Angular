@@ -25,4 +25,6 @@ describe('SubjectListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the correct subjects', () => {})
 });
