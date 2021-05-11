@@ -15,6 +15,7 @@ import { UserSigninSignoutComponent } from './components/user/user-signin-signou
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     UserSigninSignoutComponent,
     WelcomeComponent,
     NotFoundComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
