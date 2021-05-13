@@ -1,7 +1,37 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { of } from 'rxjs';
-// import { CardService } from 'src/app/services/card.service';
-// import { FlashCardComponent } from './flash-card.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of, Subject } from 'rxjs';
+import { Card } from 'src/app/models/card';
+import { CardService } from 'src/app/services/card.service';
+import { FlashCardComponent } from './flash-card.component';
+
+describe('FlashCardComponent', () => {
+    let component: FlashCardComponent
+    let fixture: ComponentFixture<FlashCardComponent>
+    let mockCardService
+
+    beforeEach(() => {
+        mockCardService = jasmine.createSpyObj(['knowCard', 'notSureCard', 'dontKnowCard'])
+        mockCardService.selectedDeck = new Subject<Card[]>()
+
+        TestBed.configureTestingModule({
+            declarations: [
+                FlashCardComponent
+            ],
+            providers: [
+                {provide: CardService, useValue: mockCardService }
+            ],
+            schemas: [NO_ERRORS_SCHEMA]
+        })
+
+        fixture = TestBed.createComponent(FlashCardComponent)
+    })
+
+      it('should create', () => {
+        expect(fixture).toBeTruthy();
+      });
+
+})
 
 // describe('FlashCardComponent', () => {
 //   let component: FlashCardComponent;

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { SubjectListComponent } from './components/subject/subject-list/subject-list.component';
@@ -34,9 +35,10 @@ import { EditComponent } from './components/edit/edit.component';
     EditComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
