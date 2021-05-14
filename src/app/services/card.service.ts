@@ -16,6 +16,12 @@ export class CardService {
     private http: HttpClient
   ) { }
 
+  public addNewCard(newCard: Card) {
+    const result = this.http.post<Card>(`${this.cardUrl}/newCard`, newCard)
+    console.log('card service result', result)
+    return result
+  }
+
   public selectDeck(deckId: number) {
     this.getDeck(deckId)
       .subscribe(deck => {

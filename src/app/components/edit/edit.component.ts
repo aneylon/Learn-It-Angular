@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from 'src/app/models/card';
 import { Lesson } from 'src/app/models/lesson';
 import { Subject } from 'src/app/models/subject';
+import { CardService } from 'src/app/services/card.service';
 import { LessonService } from 'src/app/services/lesson.service';
 import { SubjectService } from 'src/app/services/subject.service';
 
@@ -12,10 +14,12 @@ import { SubjectService } from 'src/app/services/subject.service';
 export class EditComponent implements OnInit {
   subjects: Subject[]
   lessons: Lesson[]
+  newCard: Card = new Card()
 
   constructor(
     private subjectService: SubjectService,
-    private lessonService: LessonService
+    private lessonService: LessonService,
+    private cardService: CardService
   ) { }
 
   ngOnInit(): void {
@@ -35,5 +39,11 @@ export class EditComponent implements OnInit {
         console.log(lessons)
         this.lessons = lessons
       })
+  }
+
+  submitNewCard(newCard: Card): void {
+    console.log('add card', this.newCard)
+    this.cardService.addNewCard(this.newCard)
+    
   }
 }

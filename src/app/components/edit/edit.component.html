@@ -11,13 +11,22 @@
         <option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.title}} : {{lesson.subTitle}}</option>
     </select>
 
-    <input type="text" placeholder="Question">
-    <input type="text" placeholder="Answer">
-    <input type="text" placeholder="Explanation">
-    <input type="button" value="Add">
+    <input [(ngModel)]="newCard.question" type="text" placeholder="Question">
+    <input [(ngModel)]="newCard.answer" type="text" placeholder="Answer">
+    <input [(ngModel)]="newCard.explain" type="text" placeholder="Explanation">
+    <input (click)="submitNewCard(newCard)" type="button" value="Add">
 </form>
 
 <div>
+    <div>
+        {{newCard.question}}
+    </div>
+    <div>
+        {{newCard.answer}}
+    </div>
+    <div>
+        {{newCard.explain}}
+    </div>
     <ul>
         <li *ngFor="let subject of subjects">
             {{subject.id}} : {{subject.title}} : {{subject.subTitle}}
