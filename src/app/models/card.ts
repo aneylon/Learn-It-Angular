@@ -1,5 +1,8 @@
 export class Card {
-    public question: string;
-    public answer: string;
-    public explain: string;
+    constructor(
+        public id: number,
+        public question: string,
+        public answer: string,
+        public explain: string
+    ) {}
 }

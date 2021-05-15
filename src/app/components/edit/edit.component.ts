@@ -14,7 +14,9 @@ import { SubjectService } from 'src/app/services/subject.service';
 export class EditComponent implements OnInit {
   subjects: Subject[]
   lessons: Lesson[]
-  newCard: Card = new Card()
+  private emptyCard = new Card(0,'','','')
+  newCard: Card = this.emptyCard
+  formSubmitted: boolean = false
 
   constructor(
     private subjectService: SubjectService,
@@ -44,6 +46,9 @@ export class EditComponent implements OnInit {
   submitNewCard(newCard: Card): void {
     console.log('add card', this.newCard)
     this.cardService.addNewCard(this.newCard)
+      .subscribe(result => {
+        console.log('got back', result)
+      })
     
   }
 }

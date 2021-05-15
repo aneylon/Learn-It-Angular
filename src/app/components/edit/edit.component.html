@@ -1,35 +1,48 @@
 <h1>Select an item to edit</h1>
+<form #cardForm="ngForm">
+    <div>
+        <label for="subject">
+            Subject:
+        </label>
+        <select (change)="changeSubject($event)" id="subject" required>
+            <option value="undefined" disabled selected>Choose a Subject</option>
+            <option *ngFor="let subject of subjects" [value]="subject.id">{{subject.title}} : {{subject.subTitle}}</option>
+        </select>
+    </div>
 
-<form action="">
-    <select (change)="changeSubject($event)">
-        <option value="undefined" disabled selected>Choose a Subject</option>
-        <option *ngFor="let subject of subjects" [value]="subject.id">{{subject.title}} : {{subject.subTitle}}</option>
-    </select>
+    <div class="form-group">
+        <label for="lesson">
+            Lesson:
+        </label>
+        <select id="lesson" required>
+            <option value="undefined" disabled selected >Choose a Lesson</option>
+            <option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.title}} : {{lesson.subTitle}}</option>
+        </select>
+    </div>
 
-    <select>
-        <option value="undefined" disabled selected>Choose a Lesson</option>
-        <option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.title}} : {{lesson.subTitle}}</option>
-    </select>
+    <div>
+        <label for="question">
+            Question: 
+        </label>
+        <input [(ngModel)]="newCard.question" #question="ngModel" name="question" id="question" type="text" placeholder="Question" required>
+        <div [hidden]="question.valid || question.pristine">A question is required</div>
+    </div>
 
-    <input [(ngModel)]="newCard.question" type="text" placeholder="Question">
-    <input [(ngModel)]="newCard.answer" type="text" placeholder="Answer">
-    <input [(ngModel)]="newCard.explain" type="text" placeholder="Explanation">
-    <input (click)="submitNewCard(newCard)" type="button" value="Add">
+    <div>
+        <label for="answer">
+            Answer:
+        </label>
+        <input [(ngModel)]="newCard.answer" #answer="ngModel" name="answer" id="answer" type="text" placeholder="Answer" required>
+        <div [hidden]="answer.valid || answer.pristine">An answer is required</div>
+    </div>
+
+    <div>
+        <label for="explain">
+            Explanation:
+        </label>
+        <input [(ngModel)]="newCard.explain" #explain="ngModel" name="explain" id="explain" type="text" placeholder="Explanation" required>
+        <div [hidden]="explain.valid || explain.pristine">An explanation is required</div>
+    </div>
+
+    <input (click)="submitNewCard(newCard)" [disabled]="!cardForm.form.valid" type="button" value="Add">
 </form>
-
-<div>
-    <div>
-        {{newCard.question}}
-    </div>
-    <div>
-        {{newCard.answer}}
-    </div>
-    <div>
-        {{newCard.explain}}
-    </div>
-    <ul>
-        <li *ngFor="let subject of subjects">
-            {{subject.id}} : {{subject.title}} : {{subject.subTitle}}
-        </li>
-    </ul>
-</div>
