@@ -38,17 +38,15 @@ export class EditComponent implements OnInit {
   getLessons(lessonId: number) : void {
     this.lessonService.getLessons(lessonId)
       .subscribe(lessons => {
-        console.log(lessons)
         this.lessons = lessons
       })
   }
 
   submitNewCard(newCard: Card): void {
-    console.log('add card', this.newCard)
     this.cardService.addNewCard(this.newCard)
       .subscribe(result => {
         console.log('got back', result)
       })
-    
+
   }
 }

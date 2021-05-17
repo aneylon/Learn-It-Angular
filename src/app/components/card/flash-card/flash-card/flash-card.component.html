@@ -1,4 +1,8 @@
 <div *ngIf="cards; else placeHolder">
+  <p>
+    Selected Deck : {{selectedDeck}}
+  </p>
+
     <div>Card deck name</div>
     {{currentCard.id}}
     {{currentCard.question}}

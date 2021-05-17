@@ -18,7 +18,6 @@ export class CardService {
 
   public addNewCard(newCard: Card) {
     const result = this.http.post<Card>(`${this.cardUrl}/newCard`, newCard)
-    console.log('card service result', result)
     return result
   }
 
@@ -34,7 +33,7 @@ export class CardService {
     const result = this.http.get<Card[]>(`${this.cardUrl}/deck/${deckId}`)
     return result
   }
-  
+
   //save user response
   // know
   public knowCard(cardId: number): Observable<string>{

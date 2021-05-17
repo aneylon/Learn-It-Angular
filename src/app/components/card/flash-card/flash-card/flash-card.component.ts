@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/card';
 import { CardService } from 'src/app/services/card.service';
+import { ActivatedRoute } from '@angular/router'
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-flash-card',
@@ -13,17 +15,30 @@ export class FlashCardComponent implements OnInit {
   currentCardNumber: number = 0
   currentCard: Card
 
+  selectedDeck: number = 0
+
   constructor(
-    private cardService: CardService
-  ) {
-    this.cardService.selectedDeck.subscribe(
-      deck => {
+    private cardService: CardService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(routeParams => {
+      this.getDeck()
+    })
+  }
+
+  private getDeck(): void {
+    const deckId = +this.route.snapshot.paramMap.get('id')
+    this.selectedDeck = deckId
+    this.cardService.getDeck(deckId)
+      .subscribe(deck => {
         this.cards = deck
         this.shuffledCards = this.shuffleCards(this.cards)
         this.currentCardNumber = 0
         this.currentCard = this.shuffledCards[this.currentCardNumber]
-      }
-    )
+      })
   }
 
   private randomNumber(max: number){
@@ -40,9 +55,6 @@ export class FlashCardComponent implements OnInit {
       shuffledCards[i] = temp
     }
     return shuffledCards
-  }
-
-  ngOnInit(): void {
   }
 
   public knowCard(cardId: number): void {
@@ -67,15 +79,14 @@ export class FlashCardComponent implements OnInit {
         console.log('flash card update res', result)
       })
     this.nextCard()
-  }  
+  }
 
   public nextCard(): void {
     this.currentCardNumber ++
     if(this.currentCardNumber >= this.shuffledCards.length) {
       this.currentCardNumber = 0
       this.shuffledCards = this.shuffleCards(this.cards)
-    } 
+    }
     this.currentCard = this.shuffledCards[this.currentCardNumber]
-
   }
 }

@@ -1,6 +1,9 @@
-<div
+<!-- <div
   title="{{lesson.subTitle}}"
   (click)="selectLesson(lesson.id)"
   >
   {{lesson.title}}
-</div>
+</div> -->
+<a routerLink="/lesson/{{lesson.id}}" title="{{lesson.subTitle}}">
+  {{lesson.title}}
+</a>
