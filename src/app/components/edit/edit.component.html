@@ -22,7 +22,7 @@
 
     <div>
         <label for="question">
-            Question: 
+            Question:
         </label>
         <input [(ngModel)]="newCard.question" #question="ngModel" name="question" id="question" type="text" placeholder="Question" required>
         <div [hidden]="question.valid || question.pristine">A question is required</div>

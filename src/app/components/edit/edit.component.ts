@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Card } from 'src/app/models/card';
 import { Lesson } from 'src/app/models/lesson';
 import { Subject } from 'src/app/models/subject';
@@ -14,8 +15,7 @@ import { SubjectService } from 'src/app/services/subject.service';
 export class EditComponent implements OnInit {
   subjects: Subject[]
   lessons: Lesson[]
-  private emptyCard = new Card(0,'','','')
-  newCard: Card = this.emptyCard
+  newCard: Card = new Card(0,'','','')
   formSubmitted: boolean = false
 
   constructor(
@@ -46,7 +46,9 @@ export class EditComponent implements OnInit {
     this.cardService.addNewCard(this.newCard)
       .subscribe(result => {
         console.log('got back', result)
+        // if result is success then clear model.
+        // else display error.
+        this.newCard = new Card(0,'','','')
       })
-
   }
 }
