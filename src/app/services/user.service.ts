@@ -14,6 +14,11 @@ export class UserService {
   constructor(
     private http: HttpClient
   ) { }
+  
+  public getUser(userId: number): Observable<User> {
+    const result = this.http.get<User>(`${this.userUrl}/${userId}`)
+    return result
+  }
 
   public login(userLogin: UserLogin): Observable<User> {
     const result = this.http.post<User>(`${this.userUrl}/login`, userLogin)
@@ -26,7 +31,12 @@ export class UserService {
   }
 
   public newUser(user: User): Observable<User> {
-    const result = this.http.put<User>(`${this.userUrl}/newUser`, user)
+    const result = this.http.post<User>(`${this.userUrl}/newUser`, user)
+    return result
+  }
+
+  public updateUser(user: User): Observable<User> {
+    const result = this.http.put<User>(`${this.userUrl}/${user.id}`, user)
     return result
   }
 }

@@ -1,0 +1,27 @@
+<form #userForm>
+
+    <div>
+        <label for="userName">
+            User Name:
+        </label>
+        <input [(ngModel)]="user.userName" #userName="ngModel" name="userName" id="userName" type="text" placeholder="User Name" required>
+        <div [hidden]="userName.valid || userName.pristine">A user name is required</div>
+    </div>
+
+    <div>
+        <label for="userEmail">
+            User Email:
+        </label>
+        <input [(ngModel)]="user.userEmail" #userEmail="ngModel" name="userEmail" id="userEmail" type="text" placeholder="User Email" required>
+        <div [hidden]="userEmail.valid || userEmail.pristine">A user email is required</div>
+    </div>
+
+    <div>
+        <label for="isAdmin">
+            Is Admin:
+        </label>
+        <input [(ngModel)]="user.isAdmin" #isAdmin="ngModel" name="isAdmin" id="isAdmin" type="checkbox">
+    </div>
+
+    <input (click)="saveChanges(user)" [disabled]="!userForm.form.valid" type="button" value="Add">
+</form>

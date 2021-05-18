@@ -17,6 +17,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditComponent } from './components/edit/edit.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EditComponent } from './components/edit/edit.component';
     WelcomeComponent,
     NotFoundComponent,
     EditComponent,
+    UserProfileComponent,
   ],
   imports: [
     FormsModule,
